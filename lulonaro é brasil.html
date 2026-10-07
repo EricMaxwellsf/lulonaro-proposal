@@ -1,0 +1,1732 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ele 2026 · Soberania, Segurança e Economia</title>
+  <style>
+    /* Reset e base */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: #f5f7fa;
+      font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      color: #1e293b;
+      line-height: 1.6;
+      padding: 2rem 1rem;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    /* Cabeçalho */
+    header {
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+
+    header h1 {
+      font-size: 2.4rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      color: #0f172a;
+      margin-bottom: 0.5rem;
+    }
+
+    header p {
+      font-size: 1.1rem;
+      color: #475569;
+      max-width: 700px;
+      margin: 0 auto;
+    }
+
+    /* Abas de tema */
+    .tabs {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      margin-bottom: 2.5rem;
+      flex-wrap: wrap;
+    }
+
+    .tab-btn {
+      background: white;
+      border: 1px solid #e2e8f0;
+      padding: 0.75rem 2rem;
+      border-radius: 9999px;
+      font-size: 1rem;
+      font-weight: 600;
+      color: #475569;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      box-shadow: 0 1px 2px rgba(0,0,0,0.02);
+    }
+
+    .tab-btn:hover {
+      border-color: #94a3b8;
+      color: #1e293b;
+    }
+
+    .tab-btn.active {
+      background: #0f172a;
+      border-color: #0f172a;
+      color: white;
+    }
+
+    /* Grid de colunas */
+    .columns {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+      margin-bottom: 3rem;
+    }
+
+    .column {
+      background: white;
+      border-radius: 1.5rem;
+      box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05), 0 2px 4px -2px rgba(0,0,0,0.05);
+      padding: 1.5rem;
+      border: 1px solid #e2e8f0;
+      height: fit-content;
+    }
+
+    .column-header {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      padding-bottom: 1rem;
+      border-bottom: 2px solid #f1f5f9;
+      margin-bottom: 1.5rem;
+    }
+
+    .column-header h2 {
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: #0f172a;
+    }
+
+    .column-header .badge {
+      font-size: 0.7rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      padding: 0.25rem 0.75rem;
+      border-radius: 9999px;
+      background: #f1f5f9;
+      color: #475569;
+    }
+
+    /* Cartão de citação */
+    .quote-card {
+      margin-bottom: 1.5rem;
+      padding-bottom: 1.5rem;
+      border-bottom: 1px solid #f1f5f9;
+    }
+
+    .quote-card:last-child {
+      border-bottom: none;
+      margin-bottom: 0;
+      padding-bottom: 0;
+    }
+
+    .quote-text {
+      font-size: 1.05rem;
+      color: #1e293b;
+      font-style: italic;
+      line-height: 1.7;
+      margin-bottom: 0.75rem;
+      position: relative;
+      padding-left: 1.25rem;
+    }
+
+    .quote-source {
+      font-size: 0.85rem;
+      color: #64748b;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      align-items: center;
+    }
+
+    .quote-source .date {
+      background: #f8fafc;
+      padding: 0.15rem 0.6rem;
+      border-radius: 9999px;
+      font-size: 0.75rem;
+      font-weight: 500;
+      color: #475569;
+    }
+
+    .quote-source .outlet {
+      font-weight: 500;
+      color: #334155;
+    }
+
+    /* Painel de conteúdo */
+    .tab-content {
+      display: none;
+    }
+
+    .tab-content.active {
+      display: block;
+    }
+
+    /* Seção de comparação */
+    .comparison-section {
+      margin-top: 3rem;
+      background: white;
+      border-radius: 1.5rem;
+      box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05), 0 2px 4px -2px rgba(0,0,0,0.05);
+      border: 1px solid #e2e8f0;
+      overflow: hidden;
+    }
+
+    .comparison-header {
+      background: #0f172a;
+      color: white;
+      padding: 1.25rem 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .comparison-header h2 {
+      font-size: 1.3rem;
+      font-weight: 700;
+    }
+
+    .comparison-header .tag {
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      background: rgba(255,255,255,0.15);
+      padding: 0.3rem 1rem;
+      border-radius: 9999px;
+    }
+
+    .comparison-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0;
+    }
+
+    .comparison-col {
+      padding: 1.5rem 2rem;
+    }
+
+    .comparison-col:first-child {
+      border-right: 1px solid #e2e8f0;
+    }
+
+    .comparison-col h3 {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: #0f172a;
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .comparison-col h3 .dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      display: inline-block;
+    }
+
+    .dot-lula {
+      background: #dc2626;
+    }
+
+    .dot-flavio {
+      background: #2563eb;
+    }
+
+    .plan-item {
+      margin-bottom: 1.25rem;
+      padding-bottom: 1.25rem;
+      border-bottom: 1px solid #f1f5f9;
+    }
+
+    .plan-item:last-child {
+      border-bottom: none;
+      margin-bottom: 0;
+      padding-bottom: 0;
+    }
+
+    .plan-item .plan-label {
+      font-size: 0.7rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: #64748b;
+      margin-bottom: 0.25rem;
+    }
+
+    .plan-item p {
+      font-size: 0.95rem;
+      color: #334155;
+      line-height: 1.6;
+    }
+
+    .plan-item .source-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.3rem;
+      font-size: 0.8rem;
+      color: #2563eb;
+      text-decoration: none;
+      font-weight: 500;
+      margin-top: 0.4rem;
+      transition: color 0.15s ease;
+    }
+
+    .plan-item .source-link:hover {
+      color: #1d4ed8;
+      text-decoration: underline;
+    }
+
+    .plan-item .source-link::before {
+      content: "↗";
+      font-size: 0.85rem;
+    }
+
+    /* Seção de argumentação */
+    .argument-section {
+      background: white;
+      border-radius: 1.5rem;
+      box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05), 0 2px 4px -2px rgba(0,0,0,0.05);
+      border: 1px solid #e2e8f0;
+      padding: 2.5rem;
+      margin-bottom: 2rem;
+    }
+
+    .argument-section h2 {
+      font-size: 1.6rem;
+      font-weight: 700;
+      color: #0f172a;
+      margin-bottom: 1.5rem;
+      padding-bottom: 0.75rem;
+      border-bottom: 3px solid #0f172a;
+    }
+
+    .argument-section h3 {
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: #1e293b;
+      margin-top: 2rem;
+      margin-bottom: 0.75rem;
+    }
+
+    .argument-section h4 {
+      font-size: 1.05rem;
+      font-weight: 600;
+      color: #334155;
+      margin-top: 1.25rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .argument-section p {
+      font-size: 1rem;
+      color: #334155;
+      line-height: 1.8;
+      margin-bottom: 1rem;
+    }
+
+    .argument-section ul,
+    .argument-section ol {
+      margin-left: 1.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .argument-section ul li,
+    .argument-section ol li {
+      font-size: 1rem;
+      color: #334155;
+      line-height: 1.8;
+      margin-bottom: 0.4rem;
+    }
+
+    .argument-section .highlight-box {
+      background: #f8fafc;
+      border-left: 4px solid #0f172a;
+      padding: 1.25rem 1.5rem;
+      border-radius: 0 0.75rem 0.75rem 0;
+      margin: 1.5rem 0;
+    }
+
+    .argument-section .highlight-box p {
+      margin-bottom: 0.5rem;
+    }
+
+    .argument-section .highlight-box p:last-child {
+      margin-bottom: 0;
+    }
+
+    .argument-section .data-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1rem;
+      margin: 1.5rem 0;
+    }
+
+    .argument-section .data-card {
+      background: #f8fafc;
+      border: 1px solid #e2e8f0;
+      border-radius: 0.75rem;
+      padding: 1.25rem;
+      text-align: center;
+    }
+
+    .argument-section .data-card .data-number {
+      font-size: 1.8rem;
+      font-weight: 800;
+      color: #0f172a;
+      line-height: 1.2;
+    }
+
+    .argument-section .data-card .data-label {
+      font-size: 0.8rem;
+      color: #64748b;
+      font-weight: 500;
+      margin-top: 0.25rem;
+    }
+
+    .argument-section .source-ref {
+      font-size: 0.8rem;
+      color: #64748b;
+      margin-top: 0.5rem;
+    }
+
+    .argument-section .source-ref a {
+      color: #2563eb;
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    .argument-section .source-ref a:hover {
+      text-decoration: underline;
+    }
+
+    .argument-section .section-divider {
+      border: none;
+      border-top: 2px solid #f1f5f9;
+      margin: 2.5rem 0;
+    }
+
+    .argument-section table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 1.5rem 0;
+      font-size: 0.95rem;
+    }
+
+    .argument-section table th,
+    .argument-section table td {
+      border: 1px solid #e2e8f0;
+      padding: 0.75rem 1rem;
+      text-align: left;
+    }
+
+    .argument-section table th {
+      background: #0f172a;
+      color: white;
+      font-weight: 600;
+    }
+
+    .argument-section table tr:nth-child(even) {
+      background: #f8fafc;
+    }
+
+    /* Caixa de edição para o usuário */
+    .user-note-box {
+      background: #fffbeb;
+      border: 2px dashed #f59e0b;
+      border-radius: 1rem;
+      padding: 1.5rem 2rem;
+      margin-bottom: 2rem;
+    }
+
+    .user-note-box h3 {
+      color: #b45309;
+      font-size: 1.1rem;
+      margin-bottom: 0.5rem;
+      margin-top: 0;
+    }
+
+    .user-note-box p {
+      color: #78350f;
+      font-size: 0.9rem;
+      margin-bottom: 0.75rem;
+    }
+
+    .user-note-box textarea {
+      width: 100%;
+      min-height: 180px;
+      border: 1px solid #fcd34d;
+      border-radius: 0.5rem;
+      padding: 1rem;
+      font-family: inherit;
+      font-size: 0.95rem;
+      line-height: 1.7;
+      resize: vertical;
+      background: #fffef7;
+      color: #1e293b;
+    }
+
+    .user-note-box textarea:focus {
+      outline: 2px solid #f59e0b;
+      outline-offset: 2px;
+    }
+
+    /* Rodapé */
+    footer {
+      text-align: center;
+      font-size: 0.85rem;
+      color: #94a3b8;
+      padding-top: 2rem;
+      border-top: 1px solid #e2e8f0;
+      margin-top: 2rem;
+    }
+
+    footer a {
+      color: #64748b;
+      text-decoration: none;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
+    }
+
+    /* Responsivo */
+    @media (max-width: 768px) {
+      header h1 {
+        font-size: 1.8rem;
+      }
+
+      .columns {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+      }
+
+      .column {
+        padding: 1.25rem;
+      }
+
+      .tab-btn {
+        padding: 0.6rem 1.2rem;
+        font-size: 0.9rem;
+      }
+
+      .quote-text {
+        font-size: 1rem;
+      }
+
+      .comparison-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .comparison-col:first-child {
+        border-right: none;
+        border-bottom: 1px solid #e2e8f0;
+      }
+
+      .comparison-col {
+        padding: 1.25rem;
+      }
+
+      .comparison-header {
+        padding: 1rem 1.25rem;
+      }
+
+      .argument-section {
+        padding: 1.5rem;
+      }
+
+      .argument-section h2 {
+        font-size: 1.3rem;
+      }
+
+      .user-note-box {
+        padding: 1rem 1.25rem;
+      }
+
+      .argument-section table {
+        font-size: 0.85rem;
+      }
+
+      .argument-section table th,
+      .argument-section table td {
+        padding: 0.5rem 0.6rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>O que dizem os candidatos</h1>
+      <p>
+        Citações literais, propostas de governo e uma análise estrutural sobre
+        <strong>segurança</strong>, <strong>soberania</strong> e <strong>economia</strong>
+        na eleição de 2026.
+      </p>
+    </header>
+
+    <!-- Abas -->
+    <div class="tabs" role="tablist">
+      <button class="tab-btn active" data-tab="seguranca" role="tab" aria-selected="true">Segurança</button>
+      <button class="tab-btn" data-tab="soberania" role="tab" aria-selected="false">Soberania</button>
+      <button class="tab-btn" data-tab="economia" role="tab" aria-selected="false">Economia</button>
+      <button class="tab-btn" data-tab="argumentacao" role="tab" aria-selected="false">Argumentação</button>
+    </div>
+
+    <!-- Conteúdo: Segurança -->
+    <div id="seguranca" class="tab-content active" role="tabpanel">
+      <div class="columns">
+        <!-- Lula -->
+        <div class="column">
+          <div class="column-header">
+            <h2>Lula</h2>
+            <span class="badge">PT</span>
+          </div>
+
+          <div class="quote-card">
+            <div class="quote-text">
+              O nosso lema é o seguinte: para o povo trabalhador, a proteção. Para o bandido, a prisão. É esse o nosso lema daqui para a frente, gente.
+            </div>
+            <div class="quote-source">
+              <span class="outlet">Crusoé</span>
+              <span class="date">07 out 2026</span>
+            </div>
+          </div>
+
+          <div class="quote-card">
+            <div class="quote-text">
+              Nós estamos transformando 138 presídios regionais, onde o Comando Vermelho e o PCC comandam o crime, em cadeia de segurança máxima para que a gente possa acabar com o crime.
+            </div>
+            <div class="quote-source">
+              <span class="outlet">Congresso em Foco</span>
+              <span class="date">07 out 2026</span>
+            </div>
+          </div>
+
+          <div class="quote-card">
+            <div class="quote-text">
+              Bandido tem que ir para a cadeia. O território tem que ser devolvido à população. Segurança pública é direito de quem trabalha, vive e quer andar livremente pelo seu território.
+            </div>
+            <div class="quote-source">
+              <span class="outlet">Tribuna do Norte</span>
+              <span class="date">06 out 2026</span>
+            </div>
+          </div>
+
+          <div class="quote-card">
+            <div class="quote-text">
+              O Estado sozinho não dá conta da segurança pública. E por que não dá conta? Porque a bandidagem cresceu. O crime organizado cresceu, ficou sofisticado, transformou-se.
+            </div>
+            <div class="quote-source">
+              <span class="outlet">Poder360</span>
+              <span class="date">06 out 2026</span>
+            </div>
+          </div>
+
+          <div class="quote-card">
+            <div class="quote-text">
+              Eu vou criar o Ministério da Segurança Pública para dividir responsabilidade com estados e municípios, pra gente libertar o povo das vilas mais pobres.
+            </div>
+            <div class="quote-source">
+              <span class="outlet">A Tarde</span>
+              <span class="date">16 ago 2026</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Flávio Bolsonaro -->
+        <div class="column">
+          <div class="column-header">
+            <h2>Flávio Bolsonaro</h2>
+            <span class="badge">PL</span>
+          </div>
+
+          <div class="quote-card">
+            <div class="quote-text">
+              O atual governo briga com todo mundo. Briga com países que tão a 10 mil km de distância. Mas não briga com ladrão de celular, traficante, estuprador, assassino. Eu vou brigar por você. Você anda com medo na rua. Nós perdemos a nossa soberania. Soberania sobre nosso celular, nosso carro, sobre a bolsa. Vocês não têm mais soberania sobre a sua casa, sua rua, sua vida.
+            </div>
+            <div class="quote-source">
+              <span class="outlet">CBN / Globo</span>
+              <span class="date">16 ago 2026</span>
+            </div>
+          </div>
+
+          <div class="quote-card">
+            <div class="quote-text">
+              Eu vou resgatar a soberania do Brasil. Vou tratar PCC, Comando Vermelho e Milícias como organizações terroristas.
+            </div>
+            <div class="quote-source">
+              <span class="outlet">CBN / Globo</span>
+              <span class="date">16 ago 2026</span>
+            </div>
+          </div>
+
+          <div class="quote-card">
+            <div class="quote-text">
+              Quem comete crime como gente grande vai ser punido como gente grande.
+            </div>
+            <div class="quote-source">
+              <span class="outlet">Revista Fórum</span>
+              <span class="date">05 out 2026</span>
+            </div>
+          </div>
+
+          <div class="quote-card">
+            <div class="quote-text">
+              O Brasil falhou no combate contra as facções, porque o presidente acha que não é um problema nacional.
+            </div>
+            <div class="quote-source">
+              <span class="outlet">Tribuna do Norte</span>
+              <span class="date">22 set 2026</span>
+            </div>
+          </div>
+
+          <div class="quote-card">
+            <div class="quote-text">
+              A gente pode garantir não só a segurança militar, mas energética para o mundo.
+            </div>
+            <div class="quote-source">
+              <span class="outlet">Tribuna do Norte</span>
+              <span class="date">22 set 2026</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Comparação de Planos: Segurança -->
+      <div class="comparison-section">
+        <div class="comparison-header">
+          <h2>📋 Comparação dos Planos de Governo: Segurança</h2>
+          <span class="tag">Registrados no TSE</span>
+        </div>
+        <div class="comparison-grid">
+          <div class="comparison-col">
+            <h3><span class="dot dot-lula"></span> Lula (PT)</h3>
+            <div class="plan-item">
+              <div class="plan-label">Ministério da Segurança Pública</div>
+              <p>Criação do Ministério da Segurança Pública, condicionada à aprovação de PEC que altera as atribuições de União, estados e municípios.</p>
+              <a href="https://www.tse.jus.br/eleicoes/eleicoes-2026-content/arquivos/proposta-pt/@@display-file/file/proposta-pt.pdf" class="source-link" target="_blank" rel="noopener">Plano de governo completo (TSE) — PDF</a>
+            </div>
+            <div class="plan-item">
+              <div class="plan-label">PEC da Segurança Pública</div>
+              <p>Aprovação da PEC que constitucionaliza o Sistema Único de Segurança Pública (Susp) e integra os órgãos dos três níveis federativos.</p>
+              <a href="https://agenciabrasil.ebc.com.br/politica/noticia/2026-09/lula-propoe-criar-ministerio-da-seguranca-e-aumento-real-do-minimo" class="source-link" target="_blank" rel="noopener">Agência Brasil</a>
+            </div>
+            <div class="plan-item">
+              <div class="plan-label">Programa Brasil contra o Crime Organizado</div>
+              <p>Fortalecimento do programa lançado em maio de 2026, com enfrentamento ao tráfico de armas, munições e explosivos.</p>
+              <a href="https://agenciabrasil.ebc.com.br/politica/noticia/2026-09/lula-propoe-criar-ministerio-da-seguranca-e-aumento-real-do-minimo" class="source-link" target="_blank" rel="noopener">Agência Brasil</a>
+            </div>
+            <div class="plan-item">
+              <div class="plan-label">Celular Seguro</div>
+              <p>Ampliação do programa Celular Seguro, que permite bloquear aparelhos, linhas e contas bancárias após roubo, furto ou perda.</p>
+              <a href="https://www.gp1.com.br/politica/noticia/2026/08/26/lula-propoe-criar-ministerio-da-seguranca-e-limitar-emendas-parlamentares-confira.html" class="source-link" target="_blank" rel="noopener">GP1</a>
+            </div>
+          </div>
+          <div class="comparison-col">
+            <h3><span class="dot dot-flavio"></span> Flávio Bolsonaro (PL)</h3>
+            <div class="plan-item">
+              <div class="plan-label">"Brasil sem Medo"</div>
+              <p>Segurança pública é o primeiro eixo do plano, classificada como condição básica para todos os outros temas.</p>
+              <a href="https://www.tse.jus.br/eleicoes/eleicoes-2026-content/arquivos/proposta-pl/@@display-file/file/proposta-pl.pdf" class="source-link" target="_blank" rel="noopener">Plano de governo completo (TSE) — PDF</a>
+            </div>
+            <div class="plan-item">
+              <div class="plan-label">Facções como "narcoterroristas"</div>
+              <p>Declarar PCC, Comando Vermelho, milícias e outras facções como organizações narcoterroristas.</p>
+              <a href="https://agenciabrasil.ebc.com.br/politica/noticia/2026-09/flavio-bolsonaro-propoe-enxugar-estado-e-endurecer-acoes-de-seguranca" class="source-link" target="_blank" rel="noopener">Agência Brasil</a>
+            </div>
+            <div class="plan-item">
+              <div class="plan-label">Redução da maioridade penal</div>
+              <p>Redução da idade penal de 18 para 14 anos, punindo maiores de 14 anos por crimes hediondos como estupro, tráfico, tortura e assassinato.</p>
+              <a href="https://agenciabrasil.ebc.com.br/politica/noticia/2026-09/flavio-bolsonaro-propoe-enxugar-estado-e-endurecer-acoes-de-seguranca" class="source-link" target="_blank" rel="noopener">Agência Brasil</a>
+            </div>
+            <div class="plan-item">
+              <div class="plan-label">Presídios e vagas</div>
+              <p>Construção de cinco presídios federais de segurança máxima (Complexo "TREVA") e criação de mais de 500 mil vagas em presídios.</p>
+              <a href="https://www.gazetadopovo.com.br/eleicoes/2026/as-principais-propostas-de-flavio-bolsonaro-para-a-seguranca/" class="source-link" target="_blank" rel="noopener">Gazeta do Povo</a>
+            </div>
+            <div class="plan-item">
+              <div class="plan-label">Tropa de elite nas fronteiras</div>
+              <p>Envio de uma "tropa de elite" das Forças Armadas para patrulhar as fronteiras e combater a entrada de drogas no país.</p>
+              <a href="https://agenciabrasil.ebc.com.br/politica/noticia/2026-09/flavio-bolsonaro-propoe-enxugar-estado-e-endurecer-acoes-de-seguranca" class="source-link" target="_blank" rel="noopener">Agência Brasil</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Conteúdo: Soberania -->
+    <div id="soberania" class="tab-content" role="tabpanel">
+      <div class="columns">
+        <!-- Lula -->
+        <div class="column">
+          <div class="column-header">
+            <h2>Lula</h2>
+            <span class="badge">PT</span>
+          </div>
+
+          <div class="quote-card">
+            <div class="quote-text">
+              A soberania significa a gente defender que ninguém vai tentar tomar de nós isso, que ninguém vai tentar interferir nas nossas decisões.
+            </div>
+            <div class="quote-source">
+              <span class="outlet">Site oficial Lula</span>
+              <span class="date">07 set 2026</span>
+            </div>
+          </div>
+
+          <div class="quote-card">
+            <div class="quote-text">
+              O Brasil não cabe no quintal de ninguém.
+            </div>
+            <div class="quote-source">
+              <span class="outlet">CartaCapital / ONU</span>
+              <span class="date">22 set 2026</span>
+            </div>
+          </div>
+
+          <div class="quote-card">
+            <div class="quote-text">
+              Nós não seremos colônia de ninguém.
+            </div>
+            <div class="quote-source">
+              <span class="outlet">Poder360</span>
+              <span class="date">06 set 2026</span>
+            </div>
+          </div>
+
+          <div class="quote-card">
+            <div class="quote-text">
+              Esse país não comporta político vira-lata, não comporta político que de dia mostra a bandeira nacional e de noite vai ficar de quatro para os Estados Unidos, para a bandeira americana.
+            </div>
+            <div class="quote-source">
+              <span class="outlet">Site oficial Lula</span>
+              <span class="date">17 set 2026</span>
+            </div>
+          </div>
+
+          <div class="quote-card">
+            <div class="quote-text">
+              Não seremos colônia de ninguém. A gente não vai exportar nossas terras raras, a gente vai exportar produto trabalhado, fabricado e processado no Brasil, porque a gente não quer ser mais exportador de commodities, a gente quer ser exportador de inteligência e de conhecimento.
+            </div>
+            <div class="quote-source">
+              <span class="outlet">Site oficial Lula</span>
+              <span class="date">17 set 2026</span>
+            </div>
+          </div>
+
+          <div class="quote-card">
+            <div class="quote-text">
+              A única coisa que eu não discuto é a soberania do meu país. Isso é sagrado.
+            </div>
+            <div class="quote-source">
+              <span class="outlet">Xinhua</span>
+              <span class="date">05 fev 2026</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Flávio Bolsonaro -->
+        <div class="column">
+          <div class="column-header">
+            <h2>Flávio Bolsonaro</h2>
+            <span class="badge">PL</span>
+          </div>
+
+          <div class="quote-card">
+            <div class="quote-text">
+              Nós perdemos a nossa soberania. Soberania sobre nosso celular, nosso carro, sobre a bolsa. Vocês não têm mais soberania sobre a sua casa, sua rua, sua vida.
+            </div>
+            <div class="quote-source">
+              <span class="outlet">CBN / Globo</span>
+              <span class="date">16 ago 2026</span>
+            </div>
+          </div>
+
+          <div class="quote-card">
+            <div class="quote-text">
+              Eu vou resgatar a soberania do Brasil.
+            </div>
+            <div class="quote-source">
+              <span class="outlet">CBN / Globo</span>
+              <span class="date">16 ago 2026</span>
+            </div>
+          </div>
+
+          <div class="quote-card">
+            <div class="quote-text">
+              A segurança das pessoas é a verdadeira soberania.
+            </div>
+            <div class="quote-source">
+              <span class="outlet">Revista Fórum</span>
+              <span class="date">05 jun 2026</span>
+            </div>
+          </div>
+
+          <div class="quote-card">
+            <div class="quote-text">
+              O Brasil é a solução da América para quebrar a dependência da China em minerais críticos.
+            </div>
+            <div class="quote-source">
+              <span class="outlet">Fundação Perseu Abramo</span>
+              <span class="date">14 abr 2026</span>
+            </div>
+          </div>
+
+          <div class="quote-card">
+            <div class="quote-text">
+              Soberania não se exerce repetindo a palavra 'soberania' a todo momento.
+            </div>
+            <div class="quote-source">
+              <span class="outlet">Diário do Centro do Mundo</span>
+              <span class="date">13 ago 2026</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Comparação de Planos: Soberania -->
+      <div class="comparison-section">
+        <div class="comparison-header">
+          <h2>📋 Comparação dos Planos de Governo: Soberania</h2>
+          <span class="tag">Registrados no TSE</span>
+        </div>
+        <div class="comparison-grid">
+          <div class="comparison-col">
+            <h3><span class="dot dot-lula"></span> Lula (PT)</h3>
+            <div class="plan-item">
+              <div class="plan-label">"Soberania nacional" como eixo central</div>
+              <p>O plano de governo de 84 páginas tem a palavra "soberania" citada 30 vezes e é organizado em torno de quatro eixos, sendo um deles a soberania nacional.</p>
+              <a href="https://sbtnews.sbt.com.br/noticia/politica/apos-tarifaco-plano-de-lula-cita-soberania-30-vezes" class="source-link" target="_blank" rel="noopener">SBT News</a>
+            </div>
+            <div class="plan-item">
+              <div class="plan-label">Resposta aos tarifaços de Trump</div>
+              <p>O documento cita nominalmente o governo Trump e as "3 ondas de tarifaços", apresentando o "Plano Brasil Soberano" como resposta.</p>
+              <a href="https://www.poder360.com.br/poder-eleicoes-2026/plano-de-governo-de-lula-foca-em-soberania-e-cita-trump/" class="source-link" target="_blank" rel="noopener">Poder360</a>
+            </div>
+            <div class="plan-item">
+              <div class="plan-label">Defesa e autonomia estratégica</div>
+              <p>"Não há projeção internacional soberana sem capacidade de defesa", afirma o plano, que defende política de defesa baseada em autonomia estratégica e inovação tecnológica.</p>
+              <a href="https://www.poder360.com.br/poder-eleicoes-2026/plano-de-governo-de-lula-foca-em-soberania-e-cita-trump/" class="source-link" target="_blank" rel="noopener">Poder360</a>
+            </div>
+            <div class="plan-item">
+              <div class="plan-label">Protagonismo internacional</div>
+              <p>"Defender a soberania nacional e o protagonismo internacional do Brasil" é uma das diretrizes explícitas do plano.</p>
+              <a href="https://www.poder360.com.br/poder-eleicoes-2026/pt-divulga-programa-de-governo-de-lula-leia-a-integra/" class="source-link" target="_blank" rel="noopener">Poder360 (íntegra)</a>
+            </div>
+          </div>
+          <div class="comparison-col">
+            <h3><span class="dot dot-flavio"></span> Flávio Bolsonaro (PL)</h3>
+            <div class="plan-item">
+              <div class="plan-label">"Soberania com profissionalismo"</div>
+              <p>O plano "Para o Brasil Vencer o Atraso" dedica seções inteiras à soberania, com o capítulo "Soberania com Profissionalismo".</p>
+              <a href="https://diplomatique.org.br/o-programa-de-flavio-bolsonaro-promete-respeitar-todos-os-arranjos-familiares/" class="source-link" target="_blank" rel="noopener">Le Monde Diplomatique</a>
+            </div>
+            <div class="plan-item">
+              <div class="plan-label">Minerais críticos como estratégia</div>
+              <p>O plano propõe usar os minerais críticos brasileiros para quebrar a dependência global da China, posicionando o Brasil como solução para o Ocidente.</p>
+              <a href="https://diplomatique.org.br/o-programa-de-flavio-bolsonaro-promete-respeitar-todos-os-arranjos-familiares/" class="source-link" target="_blank" rel="noopener">Le Monde Diplomatique</a>
+            </div>
+            <div class="plan-item">
+              <div class="plan-label">Parceria com EUA para terras raras ("Prosperity Partnership")</div>
+              <p>Documento atribuído a aliado de Flávio detalha proposta de aliança com Washington para exploração e processamento de minerais críticos. O plano estima US$ 50–100 bilhões em investimentos em 10 anos, criação de 500 mil a 1 milhão de empregos e impacto de 1,5 a 2,5 p.p. no PIB. Propõe alinhamento ocidental explícito e tratamento dos minerais como ativos de segurança nacional.</p>
+              <a href="https://www.em.com.br/politica/2026/09/7499166-terras-raras-plano-com-marca-de-flavio-bolsonaro-preve-parceria-com-eua.html" class="source-link" target="_blank" rel="noopener">Estado de Minas</a>
+            </div>
+            <div class="plan-item">
+              <div class="plan-label">Retomada de desestatizações</div>
+              <p>O plano prevê a retomada do Programa Nacional de Desestatização e a avaliação de empresas estatais para eventual privatização.</p>
+              <a href="https://classepolitica.com.br/" class="source-link" target="_blank" rel="noopener">Classe Política</a>
+            </div>
+            <div class="plan-item">
+              <div class="plan-label">Anistia e reforma do STF</div>
+              <p>O programa promete anistia aos condenados pelo 8 de Janeiro e reformas no Supremo Tribunal Federal, com mandatos para ministros e restrições a decisões monocráticas.</p>
+              <a href="https://www.bbc.com/portuguese/articles/ckq5ne65q14go" class="source-link" target="_blank" rel="noopener">BBC News Brasil</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Conteúdo: Economia -->
+    <div id="economia" class="tab-content" role="tabpanel">
+      <div class="columns">
+        <!-- Lula -->
+        <div class="column">
+          <div class="column-header">
+            <h2>Lula</h2>
+            <span class="badge">PT</span>
+          </div>
+
+          <div class="quote-card">
+            <div class="quote-text">
+              O comportamento do presidente Trump tem um viés muito forte em favor do unilateralismo. Isso é muito perigoso. O comércio tem que ser uma coisa equilibrada. Ele age como um imperador.
+            </div>
+            <div class="quote-source">
+              <span class="outlet">O Liberal / Estadão</span>
+              <span class="date">21 set 2026</span>
+            </div>
+          </div>
+
+          <div class="quote-card">
+            <div class="quote-text">
+              O Brasil não tem nenhum preconceito com relação comercial. Até 2008, os EUA eram o maior parceiro comercial, mas entrou a China porque vocês abandonaram o Brasil.
+            </div>
+            <div class="quote-source">
+              <span class="outlet">CNN Brasil</span>
+              <span class="date">08 maio 2026</span>
+            </div>
+          </div>
+
+          <div class="quote-card">
+            <div class="quote-text">
+              Defendemos o comércio livre. Nenhum país estrangeiro tem o direito de nos dizer a quem podemos comprar e a quem podemos vender. Somos um país soberano, e as nossas decisões pertencem-nos, a nós e a mais ninguém.
+            </div>
+            <div class="quote-source">
+              <span class="outlet">RTP</span>
+              <span class="date">07 set 2026</span>
+            </div>
+          </div>
+
+          <div class="quote-card">
+            <div class="quote-text">
+              Nós somos muito grandes, temos muita história e não podemos aceitar o tratamento que os Estados Unidos deu ao Brasil esta semana.
+            </div>
+            <div class="quote-source">
+              <span class="outlet">Democracia Socialista</span>
+              <span class="date">2026</span>
+            </div>
+          </div>
+
+          <div class="quote-card">
+            <div class="quote-text">
+              Quero melhorar a relação com a China, quero melhorar a relação com os Estados Unidos.
+            </div>
+            <div class="quote-source">
+              <span class="outlet">CGTN Español</span>
+              <span class="date">15 maio 2025</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Flávio Bolsonaro -->
+        <div class="column">
+          <div class="column-header">
+            <h2>Flávio Bolsonaro</h2>
+            <span class="badge">PL</span>
+          </div>
+
+          <div class="quote-card">
+            <div class="quote-text">
+              Ao invés do antigo NAFTA, a gente pode cortar essa letrinha 'N' e passar a usar o AFTA, o Acordo de Livre Comércio das Américas, onde o Brasil pode sim se incluir. As nossas economias, EUA e Brasil, são complementares. A gente tem uma avenida de oportunidade para trazer investimentos americanos para cá.
+            </div>
+            <div class="quote-source">
+              <span class="outlet">O Globo</span>
+              <span class="date">08 jul 2026</span>
+            </div>
+          </div>
+
+          <div class="quote-card">
+            <div class="quote-text">
+              O governo Lula, a todo momento, taca pedra nos EUA e lambe as botas da China.
+            </div>
+            <div class="quote-source">
+              <span class="outlet">O Globo</span>
+              <span class="date">08 jul 2026</span>
+            </div>
+          </div>
+
+          <div class="quote-card">
+            <div class="quote-text">
+              O Brasil precisa empreender, o Brasil precisa crescer. Eu quero libertar o povo brasileiro.
+            </div>
+            <div class="quote-source">
+              <span class="outlet">Jornal Razão</span>
+              <span class="date">04 out 2026</span>
+            </div>
+          </div>
+
+          <div class="quote-card">
+            <div class="quote-text">
+              Meu sonho vai ser acabar esse meu mandato com que menos brasileiros dependam do governo pra ter o que comer.
+            </div>
+            <div class="quote-source">
+              <span class="outlet">Jornal Razão</span>
+              <span class="date">04 out 2026</span>
+            </div>
+          </div>
+
+          <div class="quote-card">
+            <div class="quote-text">
+              Sou a favor da modernização do nosso sistema tributário, que é muito confuso.
+            </div>
+            <div class="quote-source">
+              <span class="outlet">CGN</span>
+              <span class="date">07 out 2026</span>
+            </div>
+          </div>
+
+          <div class="quote-card">
+            <div class="quote-text">
+              Sua dívida vai ficar congelada, não vai ser reajustada e você não vai pagar nenhuma parcela [durante a carência]. Isso vai reinjetar esse dinheiro na economia de uma forma sustentável.
+            </div>
+            <div class="quote-source">
+              <span class="outlet">Folha de S.Paulo</span>
+              <span class="date">07 out 2026</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Comparação de Planos: Economia -->
+      <div class="comparison-section">
+        <div class="comparison-header">
+          <h2>📋 Comparação dos Planos de Governo: Economia</h2>
+          <span class="tag">Registrados no TSE</span>
+        </div>
+        <div class="comparison-grid">
+          <div class="comparison-col">
+            <h3><span class="dot dot-lula"></span> Lula (PT)</h3>
+            <div class="plan-item">
+              <div class="plan-label">Arcabouço fiscal mantido</div>
+              <p>O plano prevê manter o arcabouço fiscal, controlar o crescimento do gasto primário e melhorar a eficiência do gasto público.</p>
+              <a href="https://www.estadao.com.br/politica/plano-de-governo-de-lula-promete-manter-arcabouco-fiscal-e-enfrentar-emendas-parlamentares/" class="source-link" target="_blank" rel="noopener">Estadão</a>
+            </div>
+            <div class="plan-item">
+              <div class="plan-label">Jornada de 40 horas e fim da escala 6x1</div>
+              <p>Redução da jornada de trabalho para 40 horas semanais sem redução salarial e fim da escala 6x1.</p>
+              <a href="https://www.congressoemfoco.com.br/noticia/121121/pt-registra-novo-plano-de-governo-de-lula-no-tse-veja-a-integra" class="source-link" target="_blank" rel="noopener">Congresso em Foco</a>
+            </div>
+            <div class="plan-item">
+              <div class="plan-label">Soberania digital e IA</div>
+              <p>Estratégia de soberania digital com infraestrutura nacional de computação, nuvem, datacenters, 5G, supercomputadores e desenvolvimento de IA por empresas brasileiras.</p>
+              <a href="https://sbtnews.sbt.com.br/colunas/nova-economia/lula-x-flavio-o-que-eles-propoem-para-quem-empreende" class="source-link" target="_blank" rel="noopener">SBT News</a>
+            </div>
+            <div class="plan-item">
+              <div class="plan-label">Crédito para pequenas empresas</div>
+              <p>Ampliação de crédito, fortalecimento de fundos garantidores, uso de fundos de bancos públicos e facilitação do acesso de pequenas empresas às compras governamentais.</p>
+              <a href="https://sbtnews.sbt.com.br/colunas/nova-economia/lula-x-flavio-o-que-eles-propoem-para-quem-empreende" class="source-link" target="_blank" rel="noopener">SBT News</a>
+            </div>
+            <div class="plan-item">
+              <div class="plan-label">Regulação do trabalho por aplicativos</div>
+              <p>Estabelecimento de regras sobre relação de trabalho, remuneração, direitos trabalhistas e previdenciários para motoristas e entregadores de app.</p>
+              <a href="https://www.congressoemfoco.com.br/noticia/121121/pt-registra-novo-plano-de-governo-de-lula-no-tse-veja-a-integra" class="source-link" target="_blank" rel="noopener">Congresso em Foco</a>
+            </div>
+          </div>
+          <div class="comparison-col">
+            <h3><span class="dot dot-flavio"></span> Flávio Bolsonaro (PL)</h3>
+            <div class="plan-item">
+              <div class="plan-label">"Tesouraço" nos gastos públicos</div>
+              <p>Corte de gastos públicos, reforma administrativa com corte de dez ministérios, cargos comissionados e despesas.</p>
+              <a href="https://agenciabrasil.ebc.com.br/politica/noticia/2026-09/flavio-bolsonaro-propoe-enxugar-estado-e-endurecer-acoes-de-seguranca" class="source-link" target="_blank" rel="noopener">Agência Brasil</a>
+            </div>
+            <div class="plan-item">
+              <div class="plan-label">Redução de impostos</div>
+              <p>Revisão da reforma tributária, redução do IVA projetado, diminuição de impostos sobre produção e consumo, e redução gradual do IOF sobre câmbio.</p>
+              <a href="https://sbtnews.sbt.com.br/colunas/nova-economia/lula-x-flavio-o-que-eles-propoem-para-quem-empreende" class="source-link" target="_blank" rel="noopener">SBT News</a>
+            </div>
+            <div class="plan-item">
+              <div class="plan-label">"Minha Primeira Empresa"</div>
+              <p>Programa com menos burocracia para abertura e formalização de empresas, capacitação pelo Sistema S e estrutura de crédito e serviços da Caixa Econômica Federal.</p>
+              <a href="https://sbtnews.sbt.com.br/colunas/nova-economia/lula-x-flavio-o-que-eles-propoem-para-quem-empreende" class="source-link" target="_blank" rel="noopener">SBT News</a>
+            </div>
+            <div class="plan-item">
+              <div class="plan-label">"Revogaço" regulatório</div>
+              <p>Ampliação da Lei da Liberdade Econômica e eliminação de normas consideradas obsoletas, simplificando procedimentos para empresas.</p>
+              <a href="https://sbtnews.sbt.com.br/colunas/nova-economia/lula-x-flavio-o-que-eles-propoem-para-quem-empreende" class="source-link" target="_blank" rel="noopener">SBT News</a>
+            </div>
+            <div class="plan-item">
+              <div class="plan-label">Retomada de desestatizações</div>
+              <p>Retomada do Programa Nacional de Desestatização e avaliação de empresas estatais para eventual privatização.</p>
+              <a href="https://classepolitica.com.br/" class="source-link" target="_blank" rel="noopener">Classe Política</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Conteúdo: Argumentação -->
+    <div id="argumentacao" class="tab-content" role="tabpanel">
+
+      <!-- ESPAÇO EDITÁVEL PARA O USUÁRIO -->
+     <div class="argument-section">
+  <h2>✍️ Meu ponto de vista: Por que considero o governo de Flávio Bolsonaro pior para o Brasil</h2>
+
+  <p>
+    As políticas liberais adotadas pelos governos brasileiros desde a década de 1990 têm impactado significativamente a economia. A agenda de abertura comercial indiscriminada, privatizações sem contrapartidas e priorização do agronegócio exportador <strong>desmontou cadeias produtivas inteiras</strong>, e o Brasil se tornou um dos últimos países latino-americanos a adotar essa agenda, o que resultou em um processo de <strong>desindustrialização precoce</strong><sup><a href="https://revistas.marilia.unesp.br/index.php/aurora/article/view/10334" target="_blank" rel="noopener">[6]</a></sup><sup><a href="https://www.scielo.br/j/rep/a/mzYtTjj8bTZVDzvLFvSPqxc/?lang=pt" target="_blank" rel="noopener">[10]</a></sup>. Nem Lula nem Flávio Bolsonaro apresentam propostas claras e bem fundamentadas para resolver esse problema estrutural. São cartas de intenção.
+  </p>
+
+  <p>
+    Porém, um possível governo Flávio Bolsonaro poderia <strong>agravar ainda mais a situação</strong>. A ideia dele de classificar as facções criminosas como grupos terroristas daria aos Estados Unidos a possibilidade de intervir no Brasil de maneira mais direta. Essa preocupação não é especulação: o próprio <strong>Itamaraty alertou formalmente</strong> para o <strong>"potencial uso da força militar"</strong> dos EUA contra o Brasil, classificando a medida como uma <strong>"ameaça direta à soberania nacional"</strong><sup><a href="https://agenciabrasil.ebc.com.br/fr/node/1696058" target="_blank" rel="noopener">[1]</a></sup>. O alerta foi encaminhado à Câmara dos Deputados em resposta a questionamentos sobre as consequências da decisão unilateral do governo americano<sup><a href="https://agenciabrasil.ebc.com.br/fr/node/1696058" target="_blank" rel="noopener">[1]</a></sup>.
+  </p>
+
+  <p>
+    Flávio Bolsonaro foi um dos articuladores junto ao secretário de Estado americano, Marco Rubio, para a classificação do PCC e do Comando Vermelho como organizações terroristas<sup><a href="https://www.band.com.br/politica/aliados-de-lula-pedem-que-pgr-investigue-flavio-bolsonaro-por-soberania" target="_blank" rel="noopener">[2]</a></sup>. Deputados do PSOL e da Rede protocolaram representação na Procuradoria-Geral da República (PGR) pedindo investigação por suposto <strong>atentado à soberania nacional</strong><sup><a href="https://www.band.com.br/politica/aliados-de-lula-pedem-que-pgr-investigue-flavio-bolsonaro-por-soberania" target="_blank" rel="noopener">[2]</a></sup>. A representação cita reportagem do <em>The New York Times</em> que afirma que a medida foi resultado de <strong>"meses de lobby agressivo dos filhos do ex-presidente preso, Jair Bolsonaro, um aliado próximo de Trump"</strong><sup><a href="https://www.band.com.br/politica/aliados-de-lula-pedem-que-pgr-investigue-flavio-bolsonaro-por-soberania" target="_blank" rel="noopener">[2]</a></sup>.
+  </p>
+
+  <p>
+    Mais grave ainda: o governo de Flávio Bolsonaro <strong>ofereceu ao governo americano assentos no time de passagem de governo</strong>. Uma carta do secretário de Estado Marco Rubio registra a <strong>"generosa oferta"</strong> de Flávio de "colocar uma equipe de transição à nossa disposição, caso seja eleito"<sup><a href="https://www.diariodocentrodomundo.com.br/carta-de-rubio-expoe-que-flavio-bolsonaro-ofereceu-equipe-de-transicao-aos-eua-em-caso-de-vitoria/" target="_blank" rel="noopener">[4]</a></sup>. A <strong>Lei nº 10.609/2002</strong> estabelece que a equipe de transição só pode ser instituída <strong>após a proclamação oficial do resultado das eleições</strong>, e é formada exclusivamente por membros do governo eleito, sem qualquer previsão para participação de governo estrangeiro<sup><a href="https://www.planalto.gov.br/ccivil_03/leis/2002/l10609.htm" target="_blank" rel="noopener">[7]</a></sup>.
+  </p>
+
+  <p>
+    O Partido dos Trabalhadores protocolou duas ações judiciais contra Flávio Bolsonaro com base nessa carta, alegando que a oferta configura <strong>subordinação ao governo dos Estados Unidos e desrespeito à soberania nacional</strong><sup><a href="https://revistaforum.com.br/politica/carta-de-marco-rubio-flavio-bolsonaro-subordinacao/" target="_blank" rel="noopener">[3]</a></sup>. A representação enviada à PGR pede a instauração de <strong>inquérito criminal</strong> por possível <strong>corrupção passiva, violação de sigilo funcional e entrega de dados confidenciais a governo estrangeiro</strong><sup><a href="https://revistaforum.com.br/politica/carta-de-marco-rubio-flavio-bolsonaro-subordinacao/" target="_blank" rel="noopener">[3]</a></sup>. O fato de a correspondência ter sido redigida em <strong>papel timbrado do Senado Federal</strong> agrava o caráter institucional da oferta<sup><a href="https://revistaforum.com.br/politica/carta-de-marco-rubio-flavio-bolsonaro-subordinacao/" target="_blank" rel="noopener">[3]</a></sup>.
+  </p>
+
+  <p>
+    Só essa fala já deveria ser considerada <strong>traição da pátria</strong> e julgada como tal, com prisão e punição de todos os envolvidos. O governo brasileiro classificou publicamente a atuação de Flávio como <strong>"traição à Pátria"</strong>, afirmando que <strong>"convocar uma potência estrangeira a pressionar o próprio país é traição à Pátria"</strong><sup><a href="https://www.em.com.br/politica/2026/07/7457002-governo-lula-repudia-flavio-bolsonaro-nos-eua-traicao-a-patria.html" target="_blank" rel="noopener">[8]</a></sup>.
+  </p>
+
+  <p>
+    Meu maior receio é que isso passe despercebido pela população e pela mídia, permitindo que tais ações ocorram sem a devida responsabilização e que o Brasil sofra as consequências tal qual a <strong>Venezuela</strong> vem sentindo com a intervenção americana. Em janeiro de 2026, os EUA lançaram uma operação militar que resultou na captura do presidente Nicolás Maduro. Trump declarou que os EUA iriam <strong>"administrar o país"</strong> e que as empresas de petróleo americanas iriam reconstruir a infraestrutura venezuelana<sup><a href="https://glashrvatske.hrt.hr/en/foreign/trump-us-will-run-venezuela-and-assume-control-over-its-oil-12505232" target="_blank" rel="noopener">[5]</a></sup>. O presidente chileno Gabriel Boric resumiu o risco: <strong>"Hoje é a Venezuela, amanhã pode ser qualquer um"</strong><sup><a href="https://glashrvatske.hrt.hr/en/foreign/trump-us-will-run-venezuela-and-assume-control-over-its-oil-12505232" target="_blank" rel="noopener">[5]</a></sup>.
+  </p>
+
+  <p>
+    Não gosto do que o governo atual vem fazendo, mas gosto menos ainda do que Flávio Bolsonaro fala e se prepara para fazer. Só ver as fontes abaixo e ao longo do texto também, e mais abaixo vou da propostas que gostaria de ter visto vindo dos candidatos a presidência.
+  </p>
+
+  <h3>📚 Fontes da argumentação</h3>
+  <ol>
+    <li><a href="https://agenciabrasil.ebc.com.br/fr/node/1696058" target="_blank" rel="noopener">Agência Brasil — Itamaraty vê potencial uso da força militar dos EUA no Brasil</a></li>
+    <li><a href="https://www.band.com.br/politica/aliados-de-lula-pedem-que-pgr-investigue-flavio-bolsonaro-por-soberania" target="_blank" rel="noopener">Band — Aliados de Lula pedem que PGR investigue Flávio Bolsonaro por soberania</a></li>
+    <li><a href="https://revistaforum.com.br/politica/carta-de-marco-rubio-flavio-bolsonaro-subordinacao/" target="_blank" rel="noopener">Revista Fórum — PT usa carta de Marco Rubio para pedir investigação de Flávio Bolsonaro</a></li>
+    <li><a href="https://www.diariodocentrodomundo.com.br/carta-de-rubio-expoe-que-flavio-bolsonaro-ofereceu-equipe-de-transicao-aos-eua-em-caso-de-vitoria/" target="_blank" rel="noopener">Diário do Centro do Mundo — Carta de Rubio expõe oferta de equipe de transição</a></li>
+    <li><a href="https://glashrvatske.hrt.hr/en/foreign/trump-us-will-run-venezuela-and-assume-control-over-its-oil-12505232" target="_blank" rel="noopener">HRT — Trump: US will run Venezuela and assume control over its oil</a></li>
+    <li><a href="https://revistas.marilia.unesp.br/index.php/aurora/article/view/10334" target="_blank" rel="noopener">Revista Aurora (Unesp) — O Consenso de Washington no Brasil: estabilização conservadora e estagnação</a></li>
+    <li><a href="https://www.planalto.gov.br/ccivil_03/leis/2002/l10609.htm" target="_blank" rel="noopener">Planalto — Lei nº 10.609/2002 (transição de governo)</a></li>
+    <li><a href="https://www.em.com.br/politica/2026/07/7457002-governo-lula-repudia-flavio-bolsonaro-nos-eua-traicao-a-patria.html" target="_blank" rel="noopener">Estado de Minas — Governo Lula repudia Flávio Bolsonaro nos EUA: "traição à Pátria"</a></li>
+    <li><a href="https://istoe.com.br/flavio-bolsonaro-equipe-transicao-rubio-agradece" target="_blank" rel="noopener">IstoÉ — Rubio agradece a Flávio Bolsonaro por "equipe de transição" antecipada</a></li>
+    <li><a href="https://www.scielo.br/j/rep/a/mzYtTjj8bTZVDzvLFvSPqxc/?lang=pt" target="_blank" rel="noopener">Brazilian Journal of Political Economy (Nassif, Feijó e Araújo) — Is Brazilian premature deindustrialization a case of Dutch disease?</a></li>
+  </ol>
+</div>
+
+      <div class="argument-section">
+        <h2>🏭 A Desindustrialização como o Problema que Nenhum Plano Enfrenta</h2>
+
+        <h3>O diagnóstico: uma economia que perdeu sua espinha dorsal</h3>
+        <p>
+          A economia brasileira passa por um processo de <strong>desindustrialização precoce</strong> desde a década de 1980. A participação da indústria de transformação no PIB caiu de <strong>35,9% em 1985 para apenas 13,7% em 2025</strong>, o menor patamar desde 2020. O setor industrial como um todo responde por 23,4% do PIB, mas a indústria de transformação, que agrega valor, gera inovação e sustenta cadeias produtivas complexas, está em queda livre.
+        </p>
+        <p>
+          Esse não é um dado conjuntural. É estrutural. A produtividade total dos fatores (PTF) brasileira cresceu apenas <strong>0,15% ao ano entre 1980 e 2016</strong>, e voltou a registrar desempenho negativo no primeiro trimestre de 2026, com queda de <strong>1,5% na métrica por horas efetivamente trabalhadas</strong>.
+        </p>
+
+        <div class="data-grid">
+          <div class="data-card">
+            <div class="data-number">35,9%</div>
+            <div class="data-label">Indústria de transformação no PIB (1985)</div>
+          </div>
+          <div class="data-card">
+            <div class="data-number">13,7%</div>
+            <div class="data-label">Indústria de transformação no PIB (2025)</div>
+          </div>
+          <div class="data-card">
+            <div class="data-number">0,15%</div>
+            <div class="data-label">Crescimento anual da PTF (1980–2016)</div>
+          </div>
+        </div>
+        <div class="source-ref">
+          Fontes:
+          <a href="https://cni.portaldaindustria.com.br" target="_blank" rel="noopener">CNI</a> ·
+          <a href="https://valorinveste.globo.com" target="_blank" rel="noopener">Valor Investe</a> ·
+          <a href="https://portal.fgv.br" target="_blank" rel="noopener">FGV IBRE</a>
+        </div>
+
+        <hr class="section-divider">
+
+        <h3>Por que a indústria importa: o efeito multiplicador</h3>
+        <p>
+          Não se trata de saudosismo industrialista. A indústria tem um <strong>efeito multiplicador</strong> que nenhum outro setor replica. Cada R$ 1,00 investido pela indústria gera <strong>R$ 2,44 na economia brasileira</strong>, um retorno de R$ 1,44 adicionais. O setor industrial responde por <strong>35,2% da arrecadação de tributos federais</strong> (exceto receitas previdenciárias), segundo dados da CNI.
+        </p>
+        <p>
+          Em 2023, as empresas industriais com 100 ou mais pessoas ocupadas investiram <strong>0,70% de sua receita líquida de vendas em Pesquisa e Desenvolvimento (P&D)</strong>, totalizando R$ 38,3 bilhões. O Brasil investiu 1,19% do PIB em P&D em 2023, sendo metade do investimento do setor privado.
+        </p>
+
+        <div class="highlight-box">
+          <p><strong>Em resumo:</strong> a indústria é o setor que mais arrecada, mais inova e mais multiplica renda. Sem ela, o Brasil fica preso na armadilha da renda média, exportando commodities e importando manufaturados.</p>
+        </div>
+
+        <hr class="section-divider">
+
+        <h3>Por que nenhum dos planos ataca o problema</h3>
+
+        <h4>O plano de Lula</h4>
+        <p>
+          O plano de Lula <strong>mantém o arcabouço fiscal</strong>, a regra que limita o crescimento das despesas federais à variação da arrecadação. O presidente afirma que vai "manter o arcabouço fiscal e criar condições para uma queda sustentada dos juros, com inflação controlada". Aposta na <strong>Nova Indústria Brasil (NIB)</strong>, com R$ 860 bilhões em financiamentos entre 2023 e 2026, mas <strong>não apresenta orçamento consolidado</strong> para executar a agenda industrial. O plano fala em "elevar a taxa de investimento" e "ampliar investimentos em infraestrutura logística", mas <strong>não define meta numérica de crescimento</strong> nem rompe com a lógica fiscal que estrangula o investimento público.
+        </p>
+        <p>
+          O problema fundamental: <strong>não se constrói uma indústria de base com o arcabouço fiscal atual</strong>. A regra fiscal herdada do teto de gastos impede que o Estado faça o investimento contracíclico e estruturante que a China e os EUA fizeram em seus processos de industrialização. Lula mantém a regra, mas promete crescimento. É uma contradição: <strong>sem investimento público robusto, não há como reindustrializar</strong>.
+        </p>
+
+        <h4>O plano de Flávio Bolsonaro</h4>
+        <p>
+          O plano de Flávio Bolsonaro é ainda mais distante do problema. Propõe um <strong>"tesouraço" nos gastos</strong>, corte de <strong>pelo menos dez ministérios</strong>, retomada do <strong>Programa Nacional de Desestatização</strong> e substituição do arcabouço fiscal por um mecanismo de <strong>superávits primários</strong>. A lógica é de <strong>Estado mínimo</strong>: reduzir o tamanho da máquina, cortar impostos, privatizar estatais e confiar que o setor privado, com "energia mais barata" e "menos burocracia", vai reindustrializar o país.
+        </p>
+        <p>
+          Essa é a <strong>agenda neoliberal clássica</strong> que, na prática, aprofundou a desindustrialização nas décadas de 1990 e 2000. A abertura comercial indiscriminada, as privatizações sem contrapartidas de investimento e a priorização do agronegócio exportador <strong>desmontaram cadeias produtivas inteiras</strong>. Não há nenhuma indicação de política industrial ativa, nenhum programa de investimento em indústria de base, nenhuma meta de adensamento produtivo.
+        </p>
+        <p>
+          Flávio Bolsonaro propõe <strong>incentivos ao emprego, à indústria e ao agronegócio</strong> de forma genérica, mas o eixo central é o corte de gastos e a redução de impostos. É uma agenda que <strong>trata a indústria como mais um setor a ser desonerado</strong>, não como o núcleo de uma estratégia de desenvolvimento.
+        </p>
+
+        <hr class="section-divider">
+
+        <h3>🇦🇷 O caso argentino: a prova de que a agenda liberal não reindustrializa</h3>
+        <p>
+          A agenda de Javier Milei na Argentina, com corte de gastos, abertura comercial indiscriminada e desregulação, <strong>aprofunda de forma dramática a desindustrialização</strong>. Em vez de modernizar a economia, o que se viu foi a <strong>destruição de capacidade produtiva e de empregos formais</strong>.
+        </p>
+
+        <h4>A indústria argentina encolheu a níveis de quase um século atrás</h4>
+        <p>
+          Entre 2023 e 2025, o peso da indústria de transformação no PIB argentino caiu de <strong>16,5% para 13,7%</strong>, um patamar similar ao registrado <strong>antes da Segunda Guerra Mundial</strong>. A produção industrial recuou <strong>8,3%</strong> no período, com <strong>22 dos 24 setores</strong> da estrutura industrial argentina registrando queda em seu valor agregado. A Argentina teve a <strong>segunda pior queda industrial do mundo</strong> entre 2023 e 2025.
+        </p>
+
+        <div class="data-grid">
+          <div class="data-card">
+            <div class="data-number">16,5% → 13,7%</div>
+            <div class="data-label">Participação da indústria no PIB (2023–2025)</div>
+          </div>
+          <div class="data-card">
+            <div class="data-number">-8,3%</div>
+            <div class="data-label">Queda da produção industrial (2023–2025)</div>
+          </div>
+          <div class="data-card">
+            <div class="data-number">+40%</div>
+            <div class="data-label">Capacidade ociosa da indústria</div>
+          </div>
+        </div>
+        <div class="source-ref">
+          Fontes:
+          <a href="https://www.baenegocios.com" target="_blank" rel="noopener">BAE Negócios</a> ·
+          <a href="https://eleconomista.com.ar" target="_blank" rel="noopener">El Economista</a> ·
+          <a href="https://www.lapoliticaonline.com" target="_blank" rel="noopener">La Política Online</a>
+        </div>
+
+        <h4>O fechamento de empresas e a destruição de empregos</h4>
+        <p>
+          Desde que Milei assumiu, <strong>mais de 2.400 empresas industriais fecharam</strong> e <strong>73 mil empregos na manufatura foram perdidos</strong>, cerca de 5% do total de empresas do setor. A Universidade de Buenos Aires (UBA) calcula que se perderam <strong>100 mil empregos industriais</strong>, o equivalente a <strong>160 empregos por dia</strong>. A capacidade ociosa da indústria atingiu <strong>40%</strong>, ou seja, quase metade das fábricas argentinas estão paradas.
+        </p>
+
+        <h4>A "destruição criativa" que não criou nada</h4>
+        <p>
+          O governo Milei justifica os fechamentos como "destruição criativa" schumpeteriana, a ideia de que empresas velhas e ineficientes fecham para dar lugar a negócios mais modernos. Na prática, o que se viu foi um <strong>deslocamento de trabalhadores da indústria para a informalidade</strong>. Um diretor de fábrica de calçados que reduziu seu quadro de 120 para 14 funcionários resume: "O que se vê é gente que perde o emprego e vai trabalhar para aplicativos". Em uma fábrica de produtos químicos que fechou após 50 anos de operação, apenas <strong>2 dos 42 funcionários demitidos</strong> conseguiram trabalho no setor formal.
+        </p>
+
+        <h4>O setor de bens de capital: o coração da indústria, destruído</h4>
+        <p>
+          O dado mais revelador da natureza da desindustrialização argentina está na <strong>indústria de bens de capital</strong>, o setor que produz máquinas e equipamentos, a base de qualquer processo de industrialização. Nesse segmento, a produção local <strong>caiu quase 25%</strong>, enquanto as <strong>importações dispararam 77%</strong>. Ou seja, a Argentina deixou de produzir suas próprias máquinas e passou a comprá-las de fora. É o oposto exato de uma estratégia de reindustrialização.
+        </p>
+
+        <hr class="section-divider">
+
+        <h3>🏛️ O que China e EUA fizeram (e o Brasil não faz)</h3>
+        <p>
+          A China construiu sua industrialização com <strong>planejamento estatal de longo prazo</strong>, investimento maciço em infraestrutura e <strong>política industrial ativa</strong>. O primeiro plano quinquenal (1953-1957) teve crescimento anual de <strong>19,7% da indústria</strong>. Entre 1953 e 1978, o crescimento industrial anual foi de <strong>11,4%</strong>, e a participação da indústria no PIB aumentou 1 ponto percentual por ano. A China é hoje o único país que possui <strong>todas as categorias industriais da classificação da ONU</strong>.
+        </p>
+        <p>
+          O que a China fez foi <strong>investir o que fosse necessário</strong> em indústria de base, infraestrutura e tecnologia, sem se submeter a regras fiscais que limitassem o investimento público. O Estado foi o <strong>indutor</strong> do processo.
+        </p>
+        <p>
+          Os EUA fizeram o mesmo em sua industrialização. Entre 1860 e 1900, o governo federal <strong>investiu diretamente em infraestrutura</strong> (ferrovias, telégrafo, estradas) e criou o <strong>National Banking Act de 1863</strong> para financiar a acumulação de capital. O governo concedeu <strong>337,7 milhões de acres de terras públicas</strong> para empresas e estados para construção de ferrovias, canais e melhorias fluviais. O crescimento econômico americano no século XIX foi sustentado por <strong>protecionismo e intervenção estatal</strong>, não pelo livre mercado.
+        </p>
+
+        <hr class="section-divider">
+
+        <h3>💡 A proposta: cancelar o teto de gastos e investir em indústria de base e infraestrutura</h3>
+        <p>
+          A saída para a desindustrialização exige romper com o <strong>dogma fiscal</strong> que estrangula o investimento público. A proposta tem três eixos:
+        </p>
+
+        <h4>1. Cancelamento do teto de gastos e criação de um orçamento de investimento estruturante</h4>
+        <p>
+          O teto de gastos (EC 95/2016) <strong>congelou por 20 anos os investimentos públicos</strong>, inclusive em saúde, educação e infraestrutura. O arcabouço fiscal que o substituiu mantém a lógica de contenção. É preciso <strong>excluir do limite fiscal os investimentos estruturantes de longo prazo</strong>, como já proposto em projetos legislativos que pediam que obras estratégicas fossem <strong>carimbadas e excluídas dos limites do regime fiscal</strong>.
+        </p>
+        <p>
+          A criação de um <strong>orçamento de investimento separado</strong>, com metas plurianuais, permitiria que o Estado financiasse a reindustrialização sem comprometer a credibilidade fiscal no curto prazo. O investimento público <strong>gera retorno</strong>: cada real investido na indústria retorna R$ 2,44 para a economia.
+        </p>
+
+        <h4>2. Programa nacional de indústria de base</h4>
+        <p>
+          O Brasil precisa de um programa específico para <strong>aço, cimento, química, fertilizantes e alumínio</strong>, os setores que fornecem insumos para todas as outras cadeias. Hoje, o Banco Mundial e o BNDES já financiam <strong>descarbonização</strong> nesses setores, com <strong>US$ 1 bilhão</strong> em projetos para aço, cimento, químicos e alumínio. Esses recursos precisam ser <strong>ampliados e integrados</strong> a uma estratégia de reindustrialização, não apenas de descarbonização.
+        </p>
+        <ul>
+          <li><strong>Metas de adensamento produtivo</strong> (aumento da participação da indústria de transformação no PIB)</li>
+          <li><strong>Encomendas tecnológicas</strong> do Estado para estimular a produção local</li>
+          <li><strong>Compras governamentais</strong> com conteúdo local obrigatório em setores estratégicos</li>
+          <li><strong>Investimento em P&D industrial</strong>, hoje concentrado em 0,70% da receita líquida das empresas</li>
+        </ul>
+
+        <h4>3. Infraestrutura como plataforma da indústria</h4>
+        <p>
+          A infraestrutura brasileira é o gargalo que encarece a produção industrial. Investir em <strong>logística, energia e telecomunicações</strong> reduz o custo Brasil e viabiliza a competitividade da indústria. Os EUA fizeram isso com as ferrovias no século XIX e as highways no século XX. A China fez com portos, ferrovias e energia.
+        </p>
+        <p>
+          O Brasil tem um <strong>Novo PAC</strong> e uma <strong>Nova Indústria Brasil</strong>, mas ambos operam <strong>dentro dos limites do arcabouço fiscal</strong>. Sem romper com esses limites, os programas são insuficientes.
+        </p>
+
+        <div class="highlight-box">
+          <p><strong>O argumento final:</strong> A desindustrialização brasileira não é um acidente. É o resultado de <strong>escolhas políticas</strong>: a abertura comercial dos anos 1990, o teto de gastos de 2016, a priorização do agronegócio exportador e a subordinação da política industrial à política fiscal.</p>
+          <p>Nenhum dos dois planos rompe com essa lógica. Lula mantém o arcabouço e promete crescimento sem explicar como financiá-lo. Flávio Bolsonaro quer cortar gastos e confiar no setor privado, a mesma receita que aprofundou a desindustrialização na Argentina.</p>
+          <p>A China e os EUA <strong>não esperaram o mercado resolver</strong>. O Estado <strong>investiu, planejou e protegeu</strong> a indústria nascente. O Brasil precisa fazer o mesmo: <strong>cancelar o teto de gastos, criar um orçamento de investimento estruturante e construir um programa nacional de indústria de base</strong>. Sem isso, a desindustrialização continuará, e o Brasil seguirá exportando soja e minério de ferro enquanto importa máquinas, remédios e carros.</p>
+        </div>
+
+        <hr class="section-divider">
+
+        <h3>📚 Fontes consultadas</h3>
+        <ul>
+          <li><a href="https://cni.portaldaindustria.com.br" target="_blank" rel="noopener">CNI — Confederação Nacional da Indústria</a></li>
+          <li><a href="https://valorinveste.globo.com" target="_blank" rel="noopener">Valor Investe — Perfil do PIB</a></li>
+          <li><a href="https://portal.fgv.br" target="_blank" rel="noopener">FGV IBRE — Produtividade Total dos Fatores</a></li>
+          <li><a href="https://anda.ibge.gov.br" target="_blank" rel="noopener">IBGE — Inovação e P&D na indústria</a></li>
+          <li><a href="https://static.portaldaindustria.com.br" target="_blank" rel="noopener">Portal da Indústria — Financiamento à Nova Indústria Brasil</a></li>
+          <li><a href="https://agenciadenoticias.bndes.gov.br" target="_blank" rel="noopener">BNDES — Descarbonização da indústria</a></li>
+          <li><a href="https://www.baenegocios.com" target="_blank" rel="noopener">BAE Negócios — Indústria argentina</a></li>
+          <li><a href="https://eleconomista.com.ar" target="_blank" rel="noopener">El Economista — Informe UBA</a></li>
+          <li><a href="https://en.interaffairs.ru" target="_blank" rel="noopener">International Affairs — Argentina's industrial decline</a></li>
+          <li><a href="https://www.lapoliticaonline.com" target="_blank" rel="noopener">La Política Online — Capacidade ociosa</a></li>
+          <li><a href="https://english.news.cn" target="_blank" rel="noopener">Xinhua — China's five-year plans</a></li>
+          <li><a href="https://oertx.highered.texas.gov" target="_blank" rel="noopener">U.S. History — Industrialization</a></li>
+          <li><a href="https://www.camara.leg.br" target="_blank" rel="noopener">Câmara dos Deputados — Teto de gastos</a></li>
+          <li><a href="https://forbes.com.br" target="_blank" rel="noopener">Forbes Brasil — Planos de governo</a></li>
+          <li><a href="https://oglobo.globo.com" target="_blank" rel="noopener">O Globo — Tesouraço de Flávio Bolsonaro</a></li>
+          <li><a href="https://www.tse.jus.br" target="_blank" rel="noopener">TSE — Planos de governo registrados</a></li>
+        </ul>
+      </div>
+
+      <!-- SEÇÃO: Soberania e Terras Raras -->
+      <div class="argument-section">
+        <h2>🌍 Soberania e Terras Raras: A Janela Estratégica do Brasil</h2>
+
+        <p>
+          O Brasil possui a <strong>segunda maior reserva de terras raras do planeta</strong>, com aproximadamente <strong>21 milhões de toneladas de óxidos equivalentes</strong>, atrás apenas da China. No entanto, a produção nacional representa apenas <strong>0,02% do total global</strong>, evidenciando que o país ainda não transformou seu potencial geológico em poder industrial e geopolítico.
+        </p>
+        <p>
+          Este descompasso entre reserva e produção não é um acidente: é o resultado de décadas de subordinação da política industrial à política fiscal e de uma inserção internacional que priorizou a exportação de commodities em bruto. A atual conjuntura geopolítica, marcada pela <strong>guerra comercial entre Estados Unidos e China</strong>, pelo <strong>declínio relativo da hegemonia americana</strong> e pela corrida global por minerais críticos, abre uma janela estreita para que o Brasil mude essa equação.
+        </p>
+
+        <hr class="section-divider">
+
+        <h3>⚔️ Potencial para Industrialização Armamentista</h3>
+        <p>
+          A Base Industrial de Defesa (BID) brasileira já representa <strong>3,49% do PIB nacional</strong> e gera quase <strong>3 milhões de empregos diretos e indiretos</strong>. O país possui <strong>294 empresas cadastradas</strong> e <strong>2.219 produtos cadastrados</strong> no Ministério da Defesa. A meta do governo é alcançar, até 2026, <strong>55% de domínio das tecnologias essenciais à defesa</strong>, como radares, satélites e foguetes. Atualmente o índice é de 42%.
+        </p>
+        <p>
+          O rearmamento europeu, impulsionado pela guerra na Ucrânia, abriu uma <strong>janela de oportunidade rara</strong> para o Brasil se tornar fornecedor relevante de armamento convencional para a OTAN. O país tem competências em munições, sistemas de foguetes e explosivos, além de <strong>estabilidade institucional e ausência de envolvimento direto em conflitos</strong>, atributos que o tornam um parceiro atraente.
+        </p>
+        <p>
+          Em junho de 2026, a <strong>Imbel</strong> (Indústria de Material Bélico do Brasil) assinou memorando com o grupo franco-alemão <strong>KNDS</strong> para transferência de tecnologia na produção de munições de <strong>105 mm, 120 mm e 155 mm</strong> nos padrões da OTAN. A parceria conta com apoio da agência francesa de aquisições de defesa (DGA) e está vinculada ao programa da viatura blindada <strong>Centauro II</strong>. Produzir munições em território nacional significa <strong>reduzir a dependência de fornecedores estrangeiros</strong> e garantir <strong>autonomia logística em situações de crise</strong>.
+        </p>
+        <p>
+          O orçamento aprovado para o Ministério da Defesa em 2026 é de <strong>R$ 142,5 bilhões</strong>, com previsão de <strong>R$ 30 bilhões em investimentos na BID</strong>. O fortalecimento dessa base posiciona o Brasil como a <strong>principal potência militar da América do Sul</strong> e consolida o país como exportador de soluções de defesa.
+        </p>
+        <div class="source-ref">
+          Fontes:
+          <a href="https://www.gov.br/defesa/pt-br/acesso-a-informacao/publicacoes/revista-a-defesa/revista_a_defesa_2025.pdf" target="_blank" rel="noopener">Ministério da Defesa — Revista A Defesa</a> ·
+          <a href="https://www.defesanet.com.br/nbr/rearmamento-europeu-e-a-janela-brasileira-como-o-brasil-pode-se-tornar-um-fornecedor-relevante-de-armamento-convencional-para-a-otan/" target="_blank" rel="noopener">DefesaNet</a> ·
+          <a href="https://www.defesaemfoco.com.br/imbel-e-knds-firmam-acordo-que-pode-tornar-o-brasil-produtor-estrategico-de-municoes-da-otan/" target="_blank" rel="noopener">Defesa em Foco</a>
+        </div>
+
+        <hr class="section-divider">
+
+        <h3>💻 Chips Nacionais: A Base da Soberania Digital</h3>
+        <p>
+          O Brasil produz cerca de <strong>200 milhões de chips por ano</strong>, principalmente memórias de maior valor agregado, segundo a Associação Brasileira da Indústria de Semicondutores (Abisemi). No entanto, o país atende apenas <strong>cerca de 8% da demanda interna</strong> por esses componentes. O setor deve movimentar <strong>US$ 2,5 bilhões em 2026</strong>, com investimentos em P&D e infraestrutura produtiva estimados em <strong>R$ 750 milhões</strong>.
+        </p>
+        <p>
+          O <strong>Centro Nacional de Tecnologia Eletrônica Avançada (Ceitec)</strong> iniciou um plano estratégico alinhado à Nova Indústria Brasil (NIB), com investimento de <strong>R$ 220 milhões</strong> desde 2024. Para 2026, serão investidos <strong>R$ 120 milhões</strong> em adequações fabris, com meta de alcançar <strong>produção em escala de dispositivos de potência em carbeto de silício (SiC) até o final de 2027</strong>. Essas ações são fundamentais para <strong>reduzir a dependência externa em semicondutores</strong> e atender aplicações críticas nos setores automotivo, eletroeletrônico e de energia limpa.
+        </p>
+        <p>
+          Em julho de 2026, o governo regulamentou o <strong>Programa Brasil Semicondutores (Brasil Semicon)</strong>, criado em 2024, que concede incentivos e crédito subsidiado para desenvolvimento da produção nacional de chips, painéis solares, baterias e smartphones. O decreto amplia os benefícios do Padis para incluir serviços especializados, como desenvolvimento de softwares e projetos de design, e elimina a exigência de lista prévia para aquisição de insumos com incentivos fiscais.
+        </p>
+        <p>
+          Um dado estratégico: os <strong>semicondutores produzidos no Brasil ficaram fora da tarifa adicional de 25% imposta pelo governo Trump</strong> sobre parte das exportações brasileiras, preservando o acesso desse segmento ao mercado americano. Isso demonstra que a produção nacional de chips é também uma <strong>ferramenta de inserção geopolítica</strong>.
+        </p>
+        <div class="source-ref">
+          Fontes:
+          <a href="https://exame.com/brasil/governo-regulamenta-programa-que-incentiva-producao-e-exportacao-de-chips-brasileiros/" target="_blank" rel="noopener">Exame</a> ·
+          <a href="https://www.gov.br/casacivil/pt-br/.arquivos/mensagem-ao-congresso-nacional-2026.pdf" target="_blank" rel="noopener">Mensagem ao Congresso 2026</a> ·
+          <a href="https://www.abisemi.org.br" target="_blank" rel="noopener">Abisemi</a>
+        </div>
+
+        <hr class="section-divider">
+
+        <h3>🧲 Processamento de Terras Raras em Solo Brasileiro</h3>
+        <p>
+          O Brasil deu um passo inédito em 2026 ao iniciar testes para a produção de <strong>ímãs de alta potência com matérias-primas extraídas no país</strong>. O <strong>CIT Senai ITR</strong>, primeiro centro de fabricação de ímãs permanentes da América Latina, localizado em Minas Gerais, recebeu um lote de <strong>20 quilos de carbonato de terras raras</strong> da mineradora Meteoric, produzido a partir de argilas iônicas extraídas no Planalto de Poços de Caldas.
+        </p>
+        <p>
+          O material obtido apresentou <strong>concentrações de até 98% de elementos de terras raras no carbonato e taxas de recuperação próximas a 79%</strong>, superando a média internacional. O projeto <strong>MagBras</strong>, aliança entre empresas, universidades e centros de pesquisa, visa desenvolver toda a cadeia produtiva, da extração mineral à fabricação de ímãs.
+        </p>
+        <p>
+          No entanto, a realidade é que o Brasil <strong>dificilmente conseguirá produzir ímãs de terras raras com matéria-prima nacional antes de 2032</strong>, segundo o coordenador da planta-piloto do Senai. As primeiras partidas comerciais são esperadas apenas para o <strong>final de 2028</strong>. O país tem <strong>mais de 3.500 pedidos de exploração de terras raras pendentes de aprovação</strong>, com processo fragmentado entre múltiplos órgãos ambientais, de terras indígenas e de patrimônio cultural.
+        </p>
+        <p>
+          O Senado analisa o <strong>PL 2.780/2024</strong>, que cria a Política Nacional para Minerais Críticos, com incentivos de <strong>R$ 7 bilhões em cinco anos</strong> para projetos de processamento e transformação no país. O projeto cria o <strong>Fundo Garantidor da Atividade Mineral</strong>, com aporte de R$ 2 bilhões da União, e um programa específico de beneficiamento com <strong>R$ 5 bilhões em créditos fiscais</strong>.
+        </p>
+        <div class="source-ref">
+          Fontes:
+          <a href="https://portuguese.news.cn/20260401/911337631245417fbeff637c3e3bc5d5/c.html" target="_blank" rel="noopener">Xinhua</a> ·
+          <a href="https://www12.senado.leg.br/noticias/materias/2026/05/08/senado-vai-analisar-criacao-de-politica-nacional-para-minerais-criticos" target="_blank" rel="noopener">Agência Senado</a> ·
+          <a href="https://www.scmp.com" target="_blank" rel="noopener">South China Morning Post</a>
+        </div>
+
+        <hr class="section-divider">
+
+        <h3>🏗️ Polo Metalúrgico Próximo às Minas</h3>
+        <p>
+          Minas Gerais é o <strong>principal polo siderúrgico do país</strong>, com <strong>30% da produção nacional de aço bruto</strong> e <strong>53 usinas de ferro-gusa em atividade</strong>. O estado abriga a <strong>maior usina da Gerdau no mundo</strong>, em Ouro Branco, com capacidade instalada de <strong>4,5 milhões de toneladas de aço por ano</strong>, respondendo por mais de <strong>10% de todo o aço produzido no Brasil</strong>.
+        </p>
+        <p>
+          No entanto, o setor enfrenta <strong>pressão das importações chinesas</strong>. O aço importado, que respondia por 11% do consumo interno, passou a representar cerca de <strong>24%</strong>, sendo 60% proveniente da China. A taxa de ociosidade da siderurgia brasileira alcança <strong>35%</strong>, com <strong>cancelamento de R$ 2,5 bilhões em investimentos</strong> e <strong>redução de 5,1 mil postos de trabalho</strong>. A produção de aço bruto deve cair <strong>2,2% em 2026</strong>.
+        </p>
+        <p>
+          A criação de um <strong>polo metalúrgico integrado</strong> próximo às principais minas de ferro e às reservas de terras raras, que estão concentradas em Minas Gerais e Goiás, permitiria ao Brasil <strong>agregar valor antes da exportação</strong>, reduzir custos logísticos e criar empregos qualificados. O <strong>Vale do Aço</strong>, que já reúne Timóteo, Coronel Fabriciano e Ipatinga, é reconhecido nacionalmente pelo potencial para receber investimentos e crescer em participação estratégica nas cadeias produtivas de aço e metalmecânica.
+        </p>
+        <div class="source-ref">
+          Fontes:
+          <a href="https://valor.globo.com/publicacoes/especiais/revista-minas-gerais/noticia/2026/03/27/aco-mineiro-resiste-a-pressao-das-importacoes.ghtml" target="_blank" rel="noopener">Valor Econômico</a> ·
+          <a href="https://www.em.com.br" target="_blank" rel="noopener">Estado de Minas</a>
+        </div>
+
+        <hr class="section-divider">
+
+        <h3>🧠 Datacenters Estrangeiros vs. IA Nacional</h3>
+        <p>
+          O Brasil aprovou o <strong>Regime Especial de Incentivos para o Desenvolvimento de Data Centers (Redata)</strong>, que concede renúncia fiscal estimada em <strong>R$ 5,2 bilhões em 2026</strong> na forma de suspensão de tributos. Tanto Lula quanto Flávio Bolsonaro defendem incentivos para atrair bilhões de dólares em investimentos em data centers e inteligência artificial.
+        </p>
+        <p>
+          O problema é que <strong>60% do processamento de IA usado no Brasil é feito no exterior</strong>, e <strong>60% dos dados brasileiros são armazenados fora do país</strong>, segundo dados do Ministério da Fazenda. Essa dependência cria uma vulnerabilidade estratégica: como alertou Mat Velloso, ex-executivo de Meta, Microsoft e Google DeepMind, <strong>"um país estrangeiro, se quiser, fecha a torneira da nossa inteligência e nós paramos de funcionar"</strong>.
+        </p>
+        <p>
+          Em agosto de 2026, o governo anunciou um pacote de <strong>R$ 2,3 bilhões</strong> para infraestrutura nacional de IA, incluindo a contratação de um <strong>supercomputador nacional dedicado à IA</strong>, com operação prevista para julho de 2027. O objetivo declarado é <strong>transformar o Brasil de usuário para desenvolvedor de tecnologias de IA em grande escala</strong> e desenvolver um <strong>grande modelo de linguagem (LLM) em português</strong>. O pacote inclui cooperação com empresas chinesas, como a iFlytek, para desenvolver modelos em língua portuguesa e formar profissionais no país.
+        </p>
+        <div class="highlight-box">
+          <p><strong>A contradição:</strong> enquanto o país concede R$ 5,2 bilhões em renúncia fiscal para atrair datacenters estrangeiros, investe apenas R$ 2,3 bilhões em IA nacional. Se o objetivo é soberania digital, a prioridade deveria ser <strong>desenvolver capacidade de processamento e modelos próprios</strong>, não apenas hospedar a infraestrutura de empresas estrangeiras que podem, a qualquer momento, desligar o serviço.</p>
+        </div>
+        <div class="source-ref">
+          Fontes:
+          <a href="https://www.bloomberglinea.com.br/tech/proximo-governo-tera-de-definir-o-papel-do-pais-na-era-da-ia-segundo-especialistas/" target="_blank" rel="noopener">Bloomberg Línea</a> ·
+          <a href="https://agenciabrasil.ebc.com.br" target="_blank" rel="noopener">Agência Brasil</a> ·
+          <a href="https://www.poder360.com.br" target="_blank" rel="noopener">Poder360</a>
+        </div>
+
+        <hr class="section-divider">
+
+        <h3>🌐 O Contexto Geopolítico: Declínio Americano e Guerra Comercial</h3>
+        <p>
+          A ordem internacional que emergiu do pós-Segunda Guerra está sendo reconfigurada. O Nobel de Economia <strong>Paul Krugman</strong> afirmou em junho de 2026 que <strong>"a era da dominância americana acabou"</strong>. Segundo ele, os EUA "perderam uma guerra" (no Irã), "não possuem mais hegemonia econômica nem dominância militar", e <strong>a China, com controle sobre terras raras e minerais críticos, tem mais poder de barganha do que os EUA</strong>.
+        </p>
+        <p>
+          Em julho de 2026, os EUA impuseram <strong>novas tarifas de 10% a 12,5% sobre 60 parceiros comerciais</strong>, alegando "trabalho forçado", cobrindo <strong>99,4% de todas as importações americanas</strong>. A medida foi uma tentativa de reconstruir a "muralha tarifária" de Trump após a Suprema Corte derrubar as tarifas recíprocas anteriores. O governo brasileiro classificou a postura de Trump como <strong>"unilateralista" e "perigosa"</strong>, com Lula afirmando que ele <strong>"age como um imperador"</strong>.
+        </p>
+        <p>
+          Historicamente, os EUA <strong>intervieram na América Latina</strong> para derrubar governos que desafiavam seus interesses econômicos: Guatemala (1954), Chile (1973), Nicarágua (anos 1980), Panamá (1989). Em 2026, a <strong>Operação Absolute Resolve</strong> na Venezuela, com captura do presidente Nicolás Maduro, segue o mesmo padrão de <strong>"identificar um governo incômodo, rotulá-lo de ameaça e decidir unilateralmente que a mudança de regime é prerrogativa americana"</strong>. O governo Trump declarou que pretende <strong>"gerenciar" a Venezuela e explorar suas reservas de petróleo "de forma lucrativa"</strong>.
+        </p>
+        <p>
+          O <strong>"Hondurasgate"</strong> expôs uma rede de financiamento secreto e lawfare que, segundo investigações, operou um "Condor moderno" para desestabilizar governos na região. Os métodos incluem <strong>financiamento político secreto, guerra algorítmica, espionagem cibernética e campanhas de desinformação</strong>.
+        </p>
+        <p>
+          Esse é o contexto em que o Brasil precisa decidir seu futuro: um mundo de <strong>hegemonia americana em declínio</strong>, <strong>guerra comercial aberta</strong> entre EUA e China, e <strong>pressões crescentes</strong> para que países periféricos escolham lados. A aposta na <strong>industrialização de base, no processamento de terras raras em solo nacional, na produção de chips e no desenvolvimento de IA própria</strong> não é apenas uma estratégia econômica, é uma <strong>estratégia de sobrevivência soberana</strong>.
+        </p>
+        <div class="source-ref">
+          Fontes:
+          <a href="https://www.reuters.com/3fec1b0a85a0/world/us/trump-imposes-forced-labor-duties-60-trading-partners-as-10-us-tariffs-expire-2026-07-24/" target="_blank" rel="noopener">Reuters</a> ·
+          <a href="https://news.cgtn.com/news/2026-01-05/Bloody-century-of-U-S-intervention-in-Latin-America-1JGqGBEIuze/share_amp.html" target="_blank" rel="noopener">CGTN</a> ·
+          <a href="https://iela.ufsc.br" target="_blank" rel="noopener">IELA / UFSC</a>
+        </div>
+      </div>
+
+      <!-- SEÇÃO: Ferrovias, Juros e Financiamento -->
+      <div class="argument-section">
+        <h2>🚂 Ferrovias, Juros e Financiamento: A Infraestrutura como Eixo da Reindustrialização</h2>
+
+        <h3>📊 O gargalo logístico e a vantagem ferroviária</h3>
+        <p>
+          O Brasil possui uma matriz de transportes <strong>excessivamente rodoviária</strong>, com <strong>96% dos investimentos da União destinados a rodovias e apenas 4% a ferrovias</strong>. Essa distorção encarece toda a cadeia produtiva: a má conservação das rodovias eleva os custos em até <strong>32,5%</strong>.
+        </p>
+        <p>
+          O custo por tonelada-quilômetro transportada é drasticamente diferente entre os modais. O transporte ferroviário custa <strong>R$ 0,18/ton.km</strong>, contra <strong>R$ 0,32/ton.km</strong> do rodoviário. Em Santa Catarina, a diferença é ainda mais expressiva: o custo médio ferroviário é de <strong>R$ 296,81 por mil TKU</strong>, enquanto o rodoviário chega a <strong>R$ 923,37 por mil TKU</strong>, uma redução de até <strong>68%</strong>. Para distâncias de mil quilômetros, o custo médio é de aproximadamente <strong>R$ 150 por tonelada pelo modal rodoviário, contra R$ 80 pela ferrovia</strong>.
+        </p>
+        <p>
+          Cenários ilustrativos de realocação modal mostram que uma <strong>realocação de 20%</strong> das cargas de longa distância para ferrovias geraria <strong>redução de custo de 8,8%</strong>, enquanto uma <strong>realocação de 50%</strong> chegaria a <strong>21,9%</strong>. A operação multimodal já em funcionamento entre Varginha e os portos de Santos e Rio de Janeiro apresenta <strong>redução de até 30% nos custos logísticos</strong> em comparação ao transporte exclusivamente rodoviário.
+        </p>
+
+        <h3>🏗️ Malha ferroviária capilarizada: o desenho proposto</h3>
+        <p>
+          A proposta de uma <strong>malha ferroviária capilarizada</strong> articula três camadas:
+        </p>
+        <ul>
+          <li><strong>Corredores estruturais</strong>: ferrovias de longo curso conectando os principais polos produtores (Minas Gerais, Goiás, Mato Grosso) aos <strong>portos de Santos, Paranaguá, Rio de Janeiro, Itaqui e Suape</strong>. Esses corredores transportariam commodities e insumos industriais em larga escala, aproveitando o menor custo por tonelada-quilômetro.</li>
+          <li><strong>Terminais intermodais nos portos e nas capitais</strong>: centros de transbordo onde a carga ferroviária é transferida para caminhões. A pesquisa acadêmica aponta que a <strong>insuficiência de terminais intermodais</strong> é uma das principais limitações operacionais do modal ferroviário brasileiro. A proposta inclui a <strong>implantação de terminais intermodais</strong> e <strong>contratos logísticos integrados</strong>.</li>
+          <li><strong>Distribuição capilar por caminhões</strong>: a partir dos terminais nas capitais e polos regionais, a carga seria distribuída para o interior por via rodoviária. A ferrovia resolve o trecho de longa distância (onde sua vantagem de custo é máxima), e o caminhão faz o trecho de baixa distância (onde sua flexibilidade é insubstituível).</li>
+        </ul>
+
+        <h3>💰 O custo do programa e as fontes de financiamento</h3>
+        <p>
+          O <strong>Plano Nacional de Desenvolvimento Ferroviário</strong> prevê <strong>R$ 140 bilhões em investimentos diretos na infraestrutura de trilhos</strong>, podendo somar <strong>R$ 600 bilhões considerando os demais investimentos necessários para o pleno funcionamento do modal</strong>. São <strong>oito leilões ferroviários</strong> previstos, abrangendo mais de <strong>9 mil quilômetros de extensão</strong>.
+        </p>
+        <p>
+          O BNDES já anunciou uma <strong>linha de financiamento para ferrovias com prazo de 40 anos</strong>, e o modelo de financiamento combina <strong>debêntures de infraestrutura, crédito do BNDES, organismos multilaterais e aportes públicos</strong>. A primeira debênture de infraestrutura para ferrovias foi emitida pela Eldorado Brasil Celulose, com <strong>R$ 1 bilhão do BNDES</strong> e <strong>R$ 50 milhões adicionais</strong> via linha Finem, totalizando <strong>R$ 1,05 bilhão</strong>.
+        </p>
+
+        <h3>📉 O custo dos juros altos: o que o país perde</h3>
+        <p>
+          A Selic elevada tem um <strong>custo fiscal direto</strong>: cada <strong>1 ponto percentual de aumento da Selic</strong>, mantido por um ano, custa o equivalente a <strong>R$ 54,4 bilhões</strong> no caso da dívida pública bruta, segundo o Banco Central. Uma <strong>redução de 1 ponto percentual</strong> na Selic geraria uma economia projetada de <strong>R$ 65,8 bilhões</strong> para as contas públicas.
+        </p>
+        <p>
+          O impacto vai muito além do fiscal. A literatura econômica documenta que <strong>juros elevados aumentam o custo de oportunidade do capital</strong>, tornando o investimento produtivo menos atraente. Um estudo do Ipea sobre a economia brasileira demonstra como <strong>a manutenção de juros altos afeta o crescimento por meio de seu impacto na decisão de investimento</strong>. Uma pesquisa da Fiesp junto à FGV mostrou que <strong>quase 50% dos cerca de 400 empresários entrevistados</strong> apontaram os juros altos como entrave ao investimento.
+        </p>
+
+        <h3>📊 A Selic sob Bolsonaro vs. o governo atual</h3>
+        <p>
+          A média da Selic durante o governo Bolsonaro foi de <strong>6,3% ao ano</strong>, a <strong>menor de todos os governos desde o Plano Real</strong>. A taxa real média no período foi de apenas <strong>0,25% ao ano</strong>.
+        </p>
+        <p>
+          Em contraste, no terceiro mandato de Lula, a Selic real média saltou para <strong>7,17% ao ano</strong> entre janeiro de 2023 e maio de 2025. O próprio BC permitiu que a taxa real permanecesse <strong>negativa até quase as vésperas das eleições de 2022</strong>, só ultrapassando 6% após a derrota eleitoral de Bolsonaro.
+        </p>
+
+        <h3>🧮 Como calcular a taxa de juros ideal: a Regra de Taylor</h3>
+        <p>
+          A <strong>Regra de Taylor</strong> é o principal instrumento utilizado pelos bancos centrais para definir o patamar do juro. A taxa de juros real neutra do Brasil foi estimada em <strong>5,7% ao ano</strong> no primeiro trimestre de 2025, o que implicaria uma <strong>Selic nominal próxima de 9%</strong>, com inflação na meta de 3% e PIB operando em seu nível potencial.
+        </p>
+        <p>
+          Aplicando a Regra de Taylor, a taxa básica de juros de equilíbrio deveria estar em <strong>10,59% ao ano</strong>, considerando a inflação acumulada nos últimos 12 meses. Ou seja, a Selic de <strong>15% estava 4,41 pontos percentuais acima do nível necessário</strong> para conter a inflação e evitar prejuízo ao crescimento econômico. Um estudo do Insper concluiu que a <strong>Selic poderia encerrar 2016 na casa dos 11%</strong> sem prejuízo na corrida pela meta da inflação.
+        </p>
+
+        <h3>💡 Quanto sobraria para investir em ferrovias: os cálculos</h3>
+        <p>
+          Combinando a economia fiscal com o custo do programa ferroviário:
+        </p>
+
+        <table>
+          <thead>
+            <tr>
+              <th>Cenário</th>
+              <th>Selic</th>
+              <th>Economia fiscal anual (R$ bi)</th>
+              <th>% do programa de R$ 140 bi</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Selic a 15% (atual)</td>
+              <td>15%</td>
+              <td>0</td>
+              <td>0%</td>
+            </tr>
+            <tr>
+              <td>Selic a 10,59% (Taylor)</td>
+              <td>10,59%</td>
+              <td>~R$ 240 bi/ano</td>
+              <td>171% do programa</td>
+            </tr>
+            <tr>
+              <td>Selic a 9% (neutra)</td>
+              <td>9%</td>
+              <td>~R$ 326 bi/ano</td>
+              <td>233% do programa</td>
+            </tr>
+            <tr>
+              <td>Selic a 6,3% (média Bolsonaro)</td>
+              <td>6,3%</td>
+              <td>~R$ 471 bi/ano</td>
+              <td>336% do programa</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <p>
+          <strong>Cálculo</strong>: A redução de 1 ponto percentual gera economia de aproximadamente <strong>R$ 54,4 bilhões a R$ 65,8 bilhões</strong>. Uma redução de <strong>4,41 pontos percentuais</strong> (de 15% para 10,59% pela Regra de Taylor) geraria economia anual de <strong>R$ 240 bilhões a R$ 290 bilhões</strong>. Uma redução de <strong>6 pontos percentuais</strong> (para 9%, a taxa neutra estimada) geraria <strong>R$ 326 bilhões a R$ 395 bilhões</strong>. Uma redução de <strong>8,7 pontos percentuais</strong> (para 6,3%, a média do governo Bolsonaro) geraria <strong>R$ 471 bilhões a R$ 572 bilhões</strong>.
+        </p>
+        <p>
+          Em todos os cenários, <strong>uma única redução anual de juros seria suficiente para financiar integralmente o programa ferroviário de R$ 140 bilhões</strong>, com sobra que poderia ser direcionada para indústria de base, chips, terras raras e IA nacional.
+        </p>
+
+        <h3>🌍 O contraponto: juros altos com resultados e juros altos com recessão</h3>
+        <p>
+          Enquanto o Brasil manteve juros altos <strong>com crescimento e pleno emprego</strong>, a Argentina de Milei seguiu caminho oposto: elevou a taxa de juros a <strong>120%</strong> em resposta à falta de reservas, desencadeando <strong>forte alta das taxas, desaceleração do crescimento e aumento do desemprego</strong>. O crédito quintuplicou, mas <strong>reduziu a renda disponível</strong> das famílias, com o endividamento sendo a válvula de escape.
+        </p>
+        <p>
+          A diferença fundamental: o Brasil combinou juros altos <strong>com transferência de renda, valorização do salário mínimo e aquecimento do mercado de trabalho</strong>. A Argentina aplicou juros altos <strong>com corte de gastos e arrocho salarial</strong>.
+        </p>
+
+        <hr class="section-divider">
+
+        <h3>📚 Fontes consultadas</h3>
+        <ul>
+          <li><a href="https://revistaft.com.br/desafios-e-vantagens-da-logistica-no-modal-ferroviario-no-contexto-brasileiro/" target="_blank" rel="noopener">Revista FT — Desafios e vantagens da logística ferroviária</a></li>
+          <li><a href="https://ojs.revistaoutraspalavras.com.br/index.php/op/article/view/2655" target="_blank" rel="noopener">Revista Outras Palavras — Integração entre modais rodoviário e ferroviário</a></li>
+          <li><a href="https://bresserpereira.centrodeeconomiapolitica.org/25.07-economia_no_governo_lula3.pdf" target="_blank" rel="noopener">Bresser-Pereira — Economia no governo Lula 3</a></li>
+          <li><a href="https://checamos.afp.com/doc.afp.com.36T99RA" target="_blank" rel="noopener">AFP Checamos — Média não é forma adequada de avaliar a Selic</a></li>
+          <li><a href="https://monitormercantil.com.br/juros-deveriam-estar-em-9-para-taxa-real-ser-neutra/" target="_blank" rel="noopener">Monitor Mercantil — Juros deveriam estar em 9% para taxa real ser neutra</a></li>
+          <li><a href="https://fiepb.com.br" target="_blank" rel="noopener">FIEPB — Regra de Taylor: Selic de equilíbrio em 10,59%</a></li>
+          <li><a href="https://www.anfip.org.br/wp-content/uploads/2025/10/Clipping-ANFIP-27-10-2025.pdf" target="_blank" rel="noopener">ANFIP — Custo fiscal da Selic</a></li>
+          <li><a href="https://repositorio.ipea.gov.br/bitstream/11058/17101/1/TD_3115_web.pdf" target="_blank" rel="noopener">Ipea — Taxa de juros, serviço da dívida e investimento público</a></li>
+          <li><a href="https://economia.uol.com.br/noticias/estadao-conteudo/2025/11/25/governo-lanca-plano-ferroviario-com-novas-regras-e-projecao-de-r-600-bi-em-investimentos.htm" target="_blank" rel="noopener">Estadão/UOL — Plano Nacional de Desenvolvimento Ferroviário</a></li>
+          <li><a href="https://agenciagov.ebc.com.br" target="_blank" rel="noopener">Agência Gov — Oito leilões de ferrovias e R$ 600 bi em investimentos</a></li>
+          <li><a href="https://www.otempo.com.br" target="_blank" rel="noopener">O Tempo — BNDES anuncia linha de financiamento para ferrovias</a></li>
+          <li><a href="https://www.poder360.com.br/poder-economia/efeito-flavio-derruba-juro-e-pais-economiza-r-66-bilhoes-com-divida/" target="_blank" rel="noopener">Poder360 — Efeito Flávio derruba juro e país economiza R$ 66 bi</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <footer>
+      <p>
+        Todas as citações são literais e foram extraídas de fontes públicas.
+        <br>
+        Os planos de governo completos estão disponíveis no
+        <a href="https://www.tse.jus.br/eleicoes/eleicoes-2026-content/propostas-de-governo-dos-candidatos-ao-cargo-de-presidente-da-republica-eleicoes-2026" target="_blank" rel="noopener">site do TSE</a>.
+        <br>
+        Este site não emite opinião, apenas reúne declarações e propostas dos candidatos para consulta.
+      </p>
+    </footer>
+  </div>
+
+  <script>
+    const tabs = document.querySelectorAll('.tab-btn');
+    const contents = document.querySelectorAll('.tab-content');
+
+    tabs.forEach(tab => {
+      tab.addEventListener('click', () => {
+        tabs.forEach(t => {
+          t.classList.remove('active');
+          t.setAttribute('aria-selected', 'false');
+        });
+        contents.forEach(c => c.classList.remove('active'));
+
+        tab.classList.add('active');
+        tab.setAttribute('aria-selected', 'true');
+        const targetId = tab.dataset.tab;
+        document.getElementById(targetId).classList.add('active');
+      });
+    });
+
+    // Salvar o texto do usuário no localStorage
+    const userNote = document.getElementById('userNote');
+    if (userNote) {
+      const saved = localStorage.getItem('userNoteArgumentacao');
+      if (saved) userNote.value = saved;
+
+      userNote.addEventListener('input', () => {
+        localStorage.setItem('userNoteArgumentacao', userNote.value);
+      });
+    }
+  </script>
+</body>
+</html>
